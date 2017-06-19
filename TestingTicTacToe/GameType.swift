@@ -41,6 +41,8 @@ struct Game {
                 output.append(key)
             }
         }
+        
+        output.sort(by: {$0.rawValue < $1.rawValue})
         return output
     }
     
@@ -112,31 +114,37 @@ struct Game {
                 printBoard()
                 let xChoice = getChoiceFromUser(prompt: "Where would you like to play, \(playerX.name)?", choices: openPositions)
                 board[xChoice] = .x
-                printBoard()
             } else {
                 printBoard()
                 let oChoice = getChoiceFromUser(prompt: "Where would you like to play, \(playerO.name)?", choices: openPositions)
                 board[oChoice] = .o
-                printBoard()
             }
         } while boardIsFull == false && xWins == false && oWins == false
         
         switch (boardIsFull, xWins, oWins) {
         case (true, false, false):
+            printBoard()
             print("The game is a draw.")
         case (false, true, false):
+            printBoard()
             print("X wins!  Congradulations, \(playerX.name).")
         case (false, false, true):
+            printBoard()
             print("O wins!, Congradulations, \(playerO.name)")
         case (true, true, false):
+            printBoard()
             print("X wins!  Congradulations, \(playerX.name).")
         case (true, false, true):
+            printBoard()
             print("O wins!, Congradulations, \(playerO.name)")
         case (false, false, false):
+            printBoard()
             print("The game continues")
         case (false, true, true):
+            printBoard()
             print("You're both cheating.")
         case (true, true, true):
+            printBoard()
             print("Both players cannot win.")
         }
     }

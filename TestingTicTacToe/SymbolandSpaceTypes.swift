@@ -27,16 +27,16 @@ enum Symbol : CustomStringConvertible {
     
 }
 
-enum PlayPosition : CustomStringConvertible {
-    case topRight
-    case topCenter
-    case topLeft
-    case middleRight
-    case middleCenter
-    case middleLeft
-    case bottomRight
-    case bottomCenter
-    case bottomLeft
+enum PlayPosition : Int, CustomStringConvertible {
+    case topRight = 2
+    case topCenter = 1
+    case topLeft = 0
+    case middleRight = 5
+    case middleCenter = 4
+    case middleLeft = 3
+    case bottomRight = 8
+    case bottomCenter = 7
+    case bottomLeft = 6
     
     var description: String {
         switch self {
